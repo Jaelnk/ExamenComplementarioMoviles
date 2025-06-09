@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.Views.RegistroContacto"
+             Title="RegistroContacto">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Image Source="logo.png"
+                   HeightRequest="120"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Tipo de Identificación"/>
+            <Picker x:Name="IdentificacionPicker">
+                <Picker.Items>
+                    <x:String>CI</x:String>
+                    <x:String>RUC</x:String>
+                    <x:String>Pasaporte</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Número de Identificación"/>
+            <Entry x:Name="NumeroIdEntry" Keyboard="Numeric" Placeholder="Ingrese el número"/>
+
+            <Label Text="Nombres"/>
+            <Entry x:Name="NombresEntry" Placeholder="Ingrese nombres"/>
+
+            <Label Text="Apellidos"/>
+            <Entry x:Name="ApellidosEntry" Placeholder="Ingrese apellidos"/>
+
+            <Label Text="Fecha de Nacimiento"/>
+            <DatePicker x:Name="FechaPicker"/>
+
+            <Label Text="Correo Electrónico"/>
+            <Entry x:Name="CorreoEntry" Keyboard="Email" Placeholder="ejemplo@correo.com"/>
+
+            <Label Text="Salario"/>
+            <Entry x:Name="SalarioEntry" Keyboard="Numeric" Placeholder="Ingrese salario"/>
+
+            <Button Text="Guardar" Clicked="Button_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

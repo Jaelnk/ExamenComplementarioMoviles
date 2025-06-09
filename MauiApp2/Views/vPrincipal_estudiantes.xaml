@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.Views.vPrincipal_estudiantes"
+             Title="Gestión de Estudiantes">
+
+    <StackLayout Padding="20">
+
+        <!-- Formulario de entrada -->
+        <Label Text="Datos del Estudiante" FontSize="18"/>
+
+        <Entry x:Name="txtNombre" Placeholder="Nombre"/>
+        <Entry x:Name="txtApellido" Placeholder="Apellido"/>
+        <Entry x:Name="txtCurso" Placeholder="Curso"/>
+        <Entry x:Name="txtParalelo" Placeholder="Paralelo" MaxLength="1"/>
+        <Entry x:Name="txtNotaFinal" Placeholder="Nota Final" Keyboard="Numeric"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+            <Button x:Name="btnAgregar" Text="Agregar" Clicked="OnAgregarClicked"/>
+            <Button x:Name="btnActualizar" Text="Actualizar" Clicked="OnActualizarClicked" IsVisible="False"/>
+            <Button x:Name="btnCancelar" Text="Cancelar" Clicked="OnCancelarClicked" IsVisible="False"/>
+            <Button x:Name="btnCamara" Text="Cámara" Clicked="OnCamaraClicked"/>
+            
+        </StackLayout>
+
+        <!-- Lista de estudiantes -->
+        <Label Text="Lista de Estudiantes" FontSize="18"/>
+
+        <CollectionView x:Name="cvEstudiantes" 
+                        SelectionMode="Single" 
+                        SelectionChanged="OnEstudianteSelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding Nombre, StringFormat='Nombre: {0}'}"/>
+                        <Label Text="{Binding Apellido, StringFormat='Apellido: {0}'}"/>
+                        <Label Text="{Binding Curso, StringFormat='Curso: {0}'}"/>
+                        <Label Text="{Binding Paralelo, StringFormat='Paralelo: {0}'}"/>
+                        <Label Text="{Binding NOTA_FINAL, StringFormat='Nota: {0:F2}'}"/>
+                        <Button Text="Eliminar" 
+                                CommandParameter="{Binding COD_ESTUDIANTE}"
+                                Clicked="OnEliminarClicked"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </StackLayout>
+</ContentPage>

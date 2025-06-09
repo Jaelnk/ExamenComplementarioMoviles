@@ -1,0 +1,16 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.Views.CameraPage"
+             Title="Cámara">
+
+    <StackLayout Padding="20" Spacing="20">
+        <Label Text="Tomar Foto del Estudiante" FontSize="18"/>
+
+        <Button x:Name="btnTomarFoto" Text="Tomar Foto" Clicked="OnTomarFotoClicked"/>
+
+        <Image x:Name="imgFoto" HeightRequest="300" WidthRequest="300"/>
+
+        <Label x:Name="lblEstado" Text="Sin foto"/>
+
+    </StackLayout>
+</ContentPage>

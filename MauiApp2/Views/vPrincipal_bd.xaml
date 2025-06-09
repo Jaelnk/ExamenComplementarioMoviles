@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.Views.vPrincipal_bd"
+             Title="vPrincipal_bd">
+    <VerticalStackLayout
+        Spacing="20" Padding="20">
+        <Label 
+            Text="SEMANA 5 SQLITE-NET-PCL!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry x:Name="txtxNombre" Placeholder="Ingrese su nombre" MaxLength="25"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnIngresar" Text="Insertar Nombre" Clicked="btnIngresar_Clicked"
+                    Grid.Row="0" Grid.Column="0" />
+
+            <Label x:Name="statusMessage" Grid.Row="1" Grid.Column="0"/>
+
+            <Button x:Name="btnListar" Text="Listar Personas" Clicked="btnListar_Clicked" 
+                    Grid.Row="2" Grid.Column="0" />
+
+            <CollectionView x:Name="listaPersona"
+                            Grid.Row="3"
+                            Grid.Column="0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5" ColumnDefinitions="Auto,*,Auto,Auto">
+                            <Label Text="{Binding Id}" Grid.Column="0" />
+                            <Label Text="{Binding Name}" Grid.Column="1" />
+
+                            <Button Text="Editar"
+                                    Grid.Column="2"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="OnEditClicked"
+                                    FontSize="Micro"
+                                    Padding="5,0" />
+
+                            <Button Text="Eliminar"
+                                    Grid.Column="3"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="OnDeleteClicked"
+                                    FontSize="Micro"
+                                    Padding="5,0" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
